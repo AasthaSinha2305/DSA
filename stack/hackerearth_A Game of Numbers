@@ -1,0 +1,85 @@
+input 
+8
+3
+7
+1
+7
+8
+4
+5
+2
+output
+1 4 4 4 -1 2 -1 -1
+Next Greater     Next Smaller
+3 --> 7                 7 -->1
+7 --> 8                 8 -->4
+1 --> 7                 7 --> 4
+7 --> 8                 8 --> 4
+8 --> -1                -1 --> -1
+4 --> 5                 5 --> 2
+5 --> -1                -1 --> -1
+2 --> -1                -1 --> -1
+
+/*General array method*/
+
+#include <iostream>
+using namespace std;
+int main(){
+    long long int n,r;
+    cin >> n;
+    long long int a[n],b[n],i,j,k,y,w,rr,ww;
+    for(i=0;i<n;i++){
+        cin >> a[i];
+    }
+    for(i=0;i<n;i++){
+        b[i] = 0;
+    }
+    r=0;
+    for(i=0;i<n;i++){
+          if(i==n-1){
+            b[r] = -1;
+            r++;
+          }
+          else{
+              rr=0;
+        for(j=i+1;i<n;j++){
+            rr++;
+            if(a[j] > a[i]){
+                if(j==n-1){
+                     b[r] = -1;
+                     r++;
+                     break;
+                     }
+                ww=0;
+                for(k=j+1;k<n;k++){
+                    ww++;
+                  if(a[k] < a[j]){
+                        b[r] = a[k];
+                        r++;
+                       // cout << "-" << i<< endl;
+                        break;
+                    }
+                    if(ww== (n-j-1)){
+                        b[r]=-1;
+                        r++;
+                    }
+                }
+                break;
+            }
+            if(rr == (n-i-1)){
+                b[r]=-1;
+                r++;
+            }
+        }
+
+          }
+    }
+
+    for(i=0;i<r;i++){
+        cout << b[i] << " ";
+    }
+    return 0;
+}
+
+
+/*STACK METHOD*/
