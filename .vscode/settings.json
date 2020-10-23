@@ -1,0 +1,10 @@
+{
+    "[cpp]": {
+
+        "editor.wordBasedSuggestions": false,
+        "editor.suggest.insertMode": "replace",
+        "editor.semanticHighlighting.enabled": true
+    },
+    "C_Cpp.default.compilerPath": "",
+    "terminal.integrated.shell.linux": ""
+}
