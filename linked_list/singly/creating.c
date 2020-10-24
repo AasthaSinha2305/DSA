@@ -45,12 +45,12 @@ int main(){
     struct Node *a[n];
 
     for(i=0;i<n;i++){
-        a[n] = (struct Node*)malloc(sizeof(struct Node*));
+        a[i] = (struct Node*)malloc(sizeof(struct Node*));
         printf("Enter element : ");
         scanf("%d",&x);
-        a[n]->data = x;
-        a[n]->next = NULL;
-        insert_End(a[n]);
+        a[i]->data = x;
+        a[i]->next = NULL;
+        insert_End(a[i]);
     }
     display();
     return 0;
