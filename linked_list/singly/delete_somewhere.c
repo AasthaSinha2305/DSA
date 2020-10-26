@@ -31,22 +31,25 @@ void delete_somewhere(){
     printf("\nEnter the element you want to delete: ");
     scanf("%d",&ele);
     if(head == NULL){
-        printf("\nList Empty...deletion notpossible...\n");
+        printf("\nList Empty...deletion not possible...\n");
     }
     else{
-        printf("\nElement deleted\n");
+        
         prev = temp;
-        while(temp!=NULL){
+        while(temp!=head){
             if(temp->data==ele){
                 if(temp == head){
+                    printf("\nElement deleted\n");
                     head = temp->next;
                     free(temp);
                     break;
                 }
                 else{
+                    printf("\nElement deleted\n");
                     prev->next = temp->next;
                     free(temp);
                     break;
+                    
 
                 }
             }
@@ -54,6 +57,9 @@ void delete_somewhere(){
                 prev=temp;
                 temp = temp->next;
             }
+        }
+        if(temp == head){
+            printf("\nElement not found...\n");
         }
     }
 }
