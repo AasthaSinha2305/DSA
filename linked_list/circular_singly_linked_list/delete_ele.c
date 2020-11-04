@@ -26,46 +26,51 @@ void insert_End(struct Node *new_node){
     }
 }
 
-void delete_after(){
-    struct Node *temp,*prev;
+void delete_ele(){
+    struct Node *prev, *temp,*temp1;
     int ele;
-    printf("\nEnter the element after which you want to delete: ");
+    printf("\nEnter element which you want to delete: ");
     scanf("%d",&ele);
-    temp = head;
-    prev = head;
     if(head == NULL){
-        printf("\nList is empty.....deletion not possible..\n");
+        printf("\nList is empty....Deletion not possible.....\n");
     }
     else{
-        if(head->next == head){
-            printf("\nDeletion not possible\n");
+        if(head->data == ele && head->next == head ){
+            head = NULL;
+            printf("\nElement deleted...\n");
         }
         else{
-            if(temp->data == ele && temp->next == head ){
-                printf("\nDeletion not possible\n");
-            }      
+            temp1 = head;
+            temp = head;
+            prev = head;
+            temp = temp->next;
+            if(head->data == ele){
+                while(temp1->next!=head){
+                    temp1 = temp1->next;
+                }
+                head = prev->next;
+                temp1->next = head;
+                printf("\nElement deleted...............\n");
+            }
             else{
-                temp = temp->next;
-                while(prev->data != ele && temp !=head){
+                while(temp->data!=ele && temp!=head){
                     prev = prev->next;
-                    temp = prev->next;
+                    temp = temp->next;
                 }
                 if(temp == head){
-                    printf("\nDeletion not possible\n");
-                }
-                else if(prev->data == ele){
-                    prev->next = temp->next;
-                    free(temp);
-                }
-                else{
                     printf("\nElement not found\n");
                 }
-            }      
-
-
+                else if(temp!=NULL){
+                    prev->next = temp->next;
+                    free(temp);
+                    printf("\nElement deleted\n");
+                }
+            }
+            
         }
     }
 }
+
 
 
 void display(){
@@ -80,18 +85,15 @@ void display(){
             printf("%d ", temp->data);
             temp = temp->next;
         }
-        printf("%d",temp->data);
+        printf("%d ",temp->data);
     }
 }
 
-
-
 int main(){
     int i,n,x;
-    printf("\nEnter the number of elements: ");
+    printf("Enter the number of elements: ");
     scanf("%d",&n);
-    struct Node *a[n],*w;
-    w = (struct Node*)malloc(sizeof(struct Node*));
+    struct Node *a[n];
     for(i=0;i<n;i++){
         a[i] = (struct Node*)malloc(sizeof(struct Node*));
         printf("Enter element: ");
@@ -101,8 +103,7 @@ int main(){
         insert_End(a[i]);
     }
     display();
-    delete_after();
+    delete_ele();
     display();
     return 0;
 }
-

@@ -24,42 +24,31 @@ void insert_End(struct Node *new_node){
         temp->next = new_node;
     }
 }
-void delete_somewhere(){
+void delete_after(){
     struct Node *temp,*prev;
-    int ele;
     temp = head;
-    printf("\nEnter the element you want to delete: ");
+    prev = head;
+    int ele;
+    printf("\nEnter after which element you want to delete: \n");
     scanf("%d",&ele);
     if(head == NULL){
-        printf("\nList Empty...deletion not possible...\n");
+        printf("\nList empty..........\n");
+    }
+    else if(head ->next == NULL){
+        printf("\nOnly one element in the list....Deletion not possible....\n");
     }
     else{
-        
-        prev = temp;
-        while(temp!=head){
-            if(temp->data==ele){
-                if(temp == head){
-                    printf("\nElement deleted\n");
-                    head = temp->next;
-                    free(temp);
-                    break;
-                }
-                else{
-                    printf("\nElement deleted\n");
-                    prev->next = temp->next;
-                    free(temp);
-                    break;
-                    
-
-                }
-            }
-            else{
-                prev=temp;
-                temp = temp->next;
-            }
+        temp = prev->next;
+        while(prev->data!=ele && temp!=NULL){
+            prev = prev->next;
+            temp = prev->next;
         }
-        if(temp == head){
-            printf("\nElement not found...\n");
+        if(temp!=NULL){
+            prev->next = temp->next;
+            printf("\nElement deleted...\n");
+        }
+        else{
+            printf("\nElement not found......deletion not possible\n");
         }
     }
 }
@@ -92,7 +81,7 @@ int main(){
         insert_End(a[i]);
     }
     display();
-    delete_somewhere();
+    delete_after();
     display();
     return 0;
 }
