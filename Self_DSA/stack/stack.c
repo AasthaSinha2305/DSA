@@ -47,7 +47,6 @@ void pop(st *s){
         s->top--;
     }
     count--;
-
 }
 
 void printStack(st *s){
