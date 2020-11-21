@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void selectionSort(int arr[],int);
+void bubbleSort(int arr[],int);
 void printArray(int arr[], int);
 void swap(int *,int *);
 
@@ -15,21 +15,24 @@ int main()
     for(i=0;i<n;i++){
         scanf("%d",&a[i]);
     }
-    selectionSort(a,n);
+    bubbleSort(a,n);
     printArray(a,n);
     return 0;
 }
-void selectionSort(int arr[],int l){
-    int i,j,minIndex;
-    printf("The array after selection sort: ");
-    for(i=0; i<l; i++){
-        minIndex = i;
-        for(j= i+1; j<l; j++){
-            if(arr[j] < arr[minIndex]){
-                minIndex = j;
+void bubbleSort(int arr[],int l){
+    int i,j;
+    printf("Array after bubble sort is: ");
+    for(i=0; i<l-1; i++){
+        int flag = 0;
+        for(j=0; j<l-i-1; j++){
+            if(arr[j]>arr[j+1]){
+                swap(&arr[j],&arr[j+1]);
+                flag = 1;
             }
         }
-        swap(&arr[i],&arr[minIndex]);
+        if(flag == 0){
+            break;
+        }
     }
 }
 void printArray(int arr[], int l){
