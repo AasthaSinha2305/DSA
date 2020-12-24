@@ -4,7 +4,8 @@
             "name": "Win32",
             "includePath": [
                 "C:\\MinGW\\lib\\gcc\\mingw32\\9.2.0",
-                "C:/MinGW/lib/gcc/mingw32/9.2.0/include/c++/mingw32"
+                "C:/MinGW/lib/gcc/mingw32/9.2.0/include/c++/mingw32",
+                "C:/MinGW/lib/gcc/mingw32/9.2.0/include/c++"
             ],
             "defines": [
                 "_DEBUG",

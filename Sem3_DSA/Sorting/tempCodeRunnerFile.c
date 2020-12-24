@@ -1,1 +1,0 @@
-printf("Array after bubble sort is: ");
