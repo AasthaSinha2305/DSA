@@ -1,9 +1,7 @@
+#include <bits/stdc++.h>
+using namespace std;
+
 //* bitwise gcd*//
-int swap(int *a , int *b){
-    int temp = *a;
-    *a = *b;
-    *b = temp;
-}
 
 int gcd(int a, int b) {
     if (!a || !b)
@@ -13,7 +11,7 @@ int gcd(int a, int b) {
     do {
         b >>= __builtin_ctz(b);
         if (a > b)
-            swap(&a, &b);
+            swap(a, b);
         b -= a;
     } while (b);
     return a << shift;
