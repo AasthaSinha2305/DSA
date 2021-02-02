@@ -1,3 +1,6 @@
+#include <bits/stdc++.h>
+using namespace std;
+
 //* recursive method *//
 
 long long binpow(long long a, long long b) {
