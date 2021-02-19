@@ -25,3 +25,24 @@ long long binpow(long long a, long long b) {
     }
     return res;
 }
+
+//** using moadulo **//
+
+#define N 1000000007;
+  
+long long int exponentiation(long long int base, long long int exp) 
+{ 
+    long long int t = 1; 
+    while (exp > 0)  
+    { 
+  
+        // for cases where exponent 
+        // is not an even value 
+        if (exp % 2 != 0) 
+            t = (t * base) % N; 
+  
+        base = (base * base) % N; 
+        exp /= 2; 
+    } 
+    return t % N; 
+}
