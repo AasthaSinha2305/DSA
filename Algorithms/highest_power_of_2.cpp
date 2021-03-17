@@ -9,6 +9,6 @@ int highestPower2(int n){
     while(n >>= 1){
         counti++;
     }
-    return pow(2,counti);
+    return pow(2,counti); 
 }
 

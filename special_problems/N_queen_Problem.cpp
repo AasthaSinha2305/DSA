@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool isSafe(int board[][10], int row, int col, int n){
+bool isSafe(int board[][100], int row, int col, int n){
     for(int i=0; i<row; i++){
         if(board[i][col]==1){
             return false;
@@ -30,7 +30,7 @@ bool isSafe(int board[][10], int row, int col, int n){
 
 }
 
-bool solveNQueen(int board[][10], int row, int n){
+bool solveNQueen(int board[][100], int row, int n){
     if(row == n){
         for(int i=0;i<n;i++){
             for(int j=0;j<n;j++){
@@ -44,7 +44,7 @@ bool solveNQueen(int board[][10], int row, int n){
             cout << endl;
         }
         cout << endl;
-        return false;
+        return true;
     }
     for(int j=0;j<n;j++){
         if(isSafe(board,row,j,n)){
@@ -63,8 +63,11 @@ bool solveNQueen(int board[][10], int row, int n){
 int main(){
     int n;
     cin >> n;
-    int board[10][10];
+    int board[100][100];
     memset(board,0,sizeof(board));
     solveNQueen(board,0,n);
     return 0;
 }
+
+
+
