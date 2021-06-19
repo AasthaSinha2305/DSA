@@ -52,9 +52,9 @@ void inorder(Node* root){
 int main(){
     int arr[5] = {1,2,3,4,5};
     Node* root = new Node();
-    root = createNode(arr[0]);
-    for(int i=1;i<5;i++){
-        insertNode(arr[i], root);
+    root = NULL; //createNode(arr[0]);
+    for(int i=0;i<5;i++){
+        root = insertNode(arr[i], root);
     }
     inorder(root);
     return 0;
